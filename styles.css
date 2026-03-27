@@ -1,0 +1,79 @@
+/* BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("https://images.unsplash.com/photo-1502920917128-1aa500764b0e") no-repeat center center fixed;
+    background-size: cover;
+}
+/* DARK OVERLAY */
+.overlay {
+    background: rgba(0,0,0,0.6);
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+}
+
+/* FORM BOX */
+.form-box {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin: 20px auto;
+    width: 350px;
+    border-radius: 10px;
+}
+
+/* INPUTS */
+form input, form select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    background: orange;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+/* 🎫 TICKET DESIGN */
+.ticket {
+    display: flex;
+    width: 700px;
+    margin: 40px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.5);
+}
+
+/* LEFT */
+.ticket-left {
+    background: white;
+    color: black;
+    padding: 20px;
+    width: 70%;
+}
+
+/* RIGHT */
+.ticket-right {
+    background: orange;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    color: white;
+}
+
+.ticket-right h1 {
+    font-size: 28px;
+}

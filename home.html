@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Ticket Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <h1 class="title">✈️ Flight Price Predictor</h1>
+
+    <div class="form-box">
+        <form action="/predict" method="post">
+
+            <input type="datetime-local" name="Dep_Time" required>
+            <input type="datetime-local" name="Arrival_Time" required>
+
+            <select name="Source">
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+
+            <select name="Destination">
+                <option value="Cochin">Cochin</option>
+                <option value="Delhi">Delhi</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
+
+            <select name="stops">
+                <option value="0">Non-Stop</option>
+                <option value="1">1 Stop</option>
+                <option value="2">2 Stops</option>
+            </select>
+
+            <select name="airline">
+                <option value="IndiGo">IndiGo</option>
+                <option value="Air India">Air India</option>
+                <option value="Jet Airways">Jet Airways</option>
+                <option value="SpiceJet">SpiceJet</option>
+            </select>
+
+            <button type="submit">Predict Ticket Price</button>
+        </form>
+    </div>
+
+    <!-- 🎫 TICKET OUTPUT -->
+    {% if prediction_text %}
+    <div class="ticket">
+
+        <div class="ticket-left">
+            <h2>{{ request.form['Source'][:3].upper() }} ➝ {{ request.form['Destination'][:3].upper() }}</h2>
+
+            <p><strong>Departure:</strong> {{ request.form['Dep_Time'] }}</p>
+            <p><strong>Arrival:</strong> {{ request.form['Arrival_Time'] }}</p>
+
+            <p><strong>Airline:</strong> {{ request.form['airline'] }}</p>
+            <p><strong>Stops:</strong> {{ request.form['stops'] }}</p>
+        </div>
+
+        <div class="ticket-right">
+            <h3>PRICE</h3>
+            <h1>{{ prediction_text }}</h1>
+            <p>Gate: A12</p>
+            <p>Seat: 21B</p>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
